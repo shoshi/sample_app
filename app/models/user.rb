@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
 		return user if user.has_password?(submitted_password)
 	end
 	
+		
 	private
 		
 		def encrypt_password
