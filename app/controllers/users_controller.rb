@@ -18,6 +18,9 @@ class UsersController < ApplicationController
 		else
 			@title = "Sign up"
 			render 'new'
+			#doesn't work, find a way to clear password fields on error
+			@user.password = ""
+			@user.password_confirmation = nil
 		end
 	end
 end
