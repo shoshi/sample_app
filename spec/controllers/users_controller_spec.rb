@@ -52,6 +52,11 @@ describe UsersController do
         response.should have_selector("a", :href => "/users?page=2",
                                            :content => "Next")
       end
+
+      it "should not have a delete user link for non-admins" do
+        get :index
+        response.should_not have_selector("a", :content => "delete")
+      end
     end
   end
 
