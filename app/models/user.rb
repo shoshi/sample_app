@@ -48,6 +48,11 @@ class User < ActiveRecord::Base
     (user && user.salt == cookie_salt) ? user : nil
   end
 
+  def feed
+    # TODO: Starting with the current user only, will add followed users
+    Micropost.where("user_id = ?", id)
+  end
+
   private
 
     def encrypt_password
